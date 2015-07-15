@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+
+<dom-module id="wid-jumbotron">
+  <style>
+
+    :host {
+      display: block;
+      width: 100%;
+      height: var(--wid-jumbotron-height, 400px);
+    }
+
+    :host ::content iron-image[background] {
+      width: 100%;
+      height: var(--wid-jumbotron-height, 400px);
+    }
+
+    #text-content {
+      -ms-transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
+      -webkit-transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
+      transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
+
+      margin-right: 250px; /*I need to calcule this value based on the image used.*/
+      opacity: var(--wid-jumbotron-content-opacity, 0.3);
+
+      @apply(--layout-fit);
+    }
+
+    #text-content ::content div[content] p {
+      margin: 0px;
+      text-align: center;
+    }
+
+    #text-content ::content div[content] iron-image[logo] {
+      height: 125px;
+      width: 200px;
+    }
+
+  </style>
+  <template>
+
+    <content select="iron-image[background]"></content>
+
+    <div id="text-content" style$="[[_computeMargin()]]">
+      <content select="div[content]"></content>
+    </div>
+
+  </template>
+</dom-module>
+
+<script>
+(function() {
+  Polymer({
+    is: 'wid-jumbotron',
+
+    _computeMargin: function () {
+      console.log('here');
+    }
+  });
+})();
+</script>
