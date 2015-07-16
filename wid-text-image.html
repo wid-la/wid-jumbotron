@@ -1,0 +1,73 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+This element displays a background image with a text on it. This text could be rotated.
+
+Example:
+```
+  <wid-text-image>
+
+      <iron-image background jumbo src="http://lorempixel.com/g/1000/600" preload sizing="cover"></iron-image>
+      <div class="layout vertical center-center">
+        <iron-image logo src="http://lorempixel.com/200/200" preload sizing="cover"></iron-image>
+
+        <h1>Hello world</h1>
+      </div>
+
+  </wid-text-image>
+```
+
+@group Wid
+@element wid-text-image
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="wid-text-image">
+  <style>
+
+    :host {
+      display: block;
+      width: 100%;
+      height: var(--wid-text-image-height, 400px);
+    }
+
+    :host ::content iron-image[background] {
+      width: 100%;
+      height: var(--wid-text-image-height, 400px);
+    }
+
+    #text-content {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: var(--wid-text-image-height, 400px);
+
+      -ms-transform: var(--wid-text-image-rotate, rotate(0.125turn));
+      -webkit-transform: var(--wid-text-image-rotate, rotate(0.125turn));
+      transform: var(--wid-text-image-rotate, rotate(0.125turn));
+      -ms-transform-origin: 50% 50%;
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+
+      opacity: var(--wid-text-image-content-opacity, 0.3);
+    }
+
+  </style>
+  <template>
+
+    <content select="iron-image[background]"></content>
+
+    <div id="text-content" class="layout vertical center-center">
+      <content select="div"></content>
+    </div>
+
+  </template>
+</dom-module>
+
+<script>
+(function() {
+  Polymer({
+    is: 'wid-text-image'
+  });
+})();
+</script>

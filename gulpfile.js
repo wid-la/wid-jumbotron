@@ -8,7 +8,7 @@ var gulp = require('gulp'),
   filter = require('gulp-filter');
 
 var POLYSERVE_PORT = 8080,
-    elementName = 'wid-jumbotron';
+    elementName = 'wid-text-image';
 
 var browserSyncConfig = function(path, cb) {
   bs.init({

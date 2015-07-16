@@ -1,10 +1,10 @@
 {
-  "name": "wid-jumbotron",
+  "name": "wid-text-image",
   "version": "1.0.1",
   "authors": [
     "Anonymous <anonymous@example.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "This element displays a background image with a text on it. This text could be rotated.",
   "keywords": [
     "web-component",
     "polymer",
@@ -19,7 +19,8 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-image": "PolymerElements/iron-image#~1.0.2"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

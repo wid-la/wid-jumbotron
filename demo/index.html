@@ -12,13 +12,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>wid-jumbotron Demo</title>
+    <title>wid-text-image Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../wid-jumbotron.html">
+    <link rel="import" href="../wid-text-image.html">
+    <link rel="import" href="../../iron-image/iron-image.html">
   </head>
   <body>
 
-    <p>An example of <code>&lt;wid-jumbotron&gt;</code>:</p>
+    <style>
+
+      wid-text-image div p {
+        margin: 0px;
+        text-align: center;
+      }
+
+      wid-text-image div iron-image[logo] {
+        height: 125px;
+        width: 200px;
+      }
+
+    </style>
+
+    <p>An example of <code>&lt;wid-text-image&gt;</code>:</p>
+
+    <wid-text-image>
+
+      <iron-image background jumbo src="http://lorempixel.com/g/1000/600" preload sizing="cover"></iron-image>
+      <div class="layout vertical center-center">
+        <iron-image logo src="http://lorempixel.com/200/200" preload sizing="cover"></iron-image>
+
+        <h1>Hello world</h1>
+      </div>
+
+  </wid-text-image>
 
   </body>
 </html>
