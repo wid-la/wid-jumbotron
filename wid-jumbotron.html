@@ -16,14 +16,19 @@
     }
 
     #text-content {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: var(--wid-jumbotron-height, 400px);
+
       -ms-transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
       -webkit-transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
       transform: var(--wid-jumbotron-rotate, rotate(0.125turn));
+      -ms-transform-origin: 50% 50%;
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
 
-      margin-right: 250px; /*I need to calcule this value based on the image used.*/
       opacity: var(--wid-jumbotron-content-opacity, 0.3);
-
-      @apply(--layout-fit);
     }
 
     #text-content ::content div[content] p {
@@ -41,7 +46,7 @@
 
     <content select="iron-image[background]"></content>
 
-    <div id="text-content" style$="[[_computeMargin()]]">
+    <div id="text-content" class="layout vertical center-center" style$="[[_computeMargin()]]">
       <content select="div[content]"></content>
     </div>
 
@@ -52,6 +57,18 @@
 (function() {
   Polymer({
     is: 'wid-jumbotron',
+
+    behaviors: [
+      Polymer.IronResizableBehavior
+    ],
+
+    listeners: {
+      'iron-resize': '_onResize'
+    },
+
+    _onResize: function () {
+      console.log('resize');
+    },
 
     _computeMargin: function () {
       console.log('here');
